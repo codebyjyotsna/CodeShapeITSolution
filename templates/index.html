@@ -8,25 +8,35 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <div class="wrapper">
-    <div class="card">
-      <h1>🌸 Positive Affirmation Generator</h1>
-      <form method="post" action="/">
-        <label for="mood">How are you feeling today?</label>
-        <input type="text" id="mood" name="mood" placeholder="e.g., happy, sad, stressed..." required>
-        <button type="submit">Get Affirmation</button>
-      </form>
 
-      {% if affirmation %}
-      <div class="affirmation fade-in">
-        <p>"{{ affirmation }}"</p>
-        <form method="post" action="/">
-          <input type="hidden" name="mood" value="{{ mood }}">
-          <button type="submit" class="another">Generate Another</button>
-        </form>
-      </div>
-      {% endif %}
-    </div>
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="bar-title">Positive Affirmation Generator</div>
+  <div class="bar-logo">
+    <img src="{{ url_for('static', filename='codeshape-logo.jpg') }}" alt="CodeShape Logo">
   </div>
+</div>
+
+<div class="wrapper">
+  <div class="card">
+    <h1>🌸 Positive Affirmation Generator</h1>
+    <form method="post" action="/">
+      <label for="mood">How are you feeling today?</label>
+      <input type="text" id="mood" name="mood" placeholder="e.g., happy, sad, stressed..." required>
+      <button type="submit">Get Affirmation</button>
+    </form>
+
+    {% if affirmation %}
+    <div class="affirmation fade-in">
+      <p>"{{ affirmation }}"</p>
+      <form method="post" action="/">
+        <input type="hidden" name="mood" value="{{ mood }}">
+        <button type="submit" class="another">Generate Another</button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
 </body>
 </html>
