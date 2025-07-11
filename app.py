@@ -1,11 +1,8 @@
-# app.py - Flask application for Positive Affirmation Generator
 from flask import Flask, render_template, request
-import random
+import random, os
 
-# Initialize Flask app
 app = Flask(__name__)
 
-# Predefined affirmations for different emotions
 affirmations = {
     'happy': [
         "Your happiness is contagious!",
@@ -45,15 +42,12 @@ affirmations = {
     ]
 }
 
-# Route for the main page: handles both displaying the form and generating affirmation
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        # Get user input from the form and convert to lowercase
         user_mood = request.form.get('mood', '').lower()
         mood_category = 'general'
 
-        # Simple keyword detection to find the emotion category
         if any(word in user_mood for word in ['happy', 'joy', 'good', 'great']):
             mood_category = 'happy'
         elif any(word in user_mood for word in ['sad', 'down', 'unhappy', 'depressed']):
@@ -65,16 +59,10 @@ def index():
         elif any(word in user_mood for word in ['stressed', 'stress', 'overwhelmed']):
             mood_category = 'stressed'
 
-        # Select a random affirmation from the chosen category
-        affirmation = random.choice(affirmations.get(mood_category, affirmations['general']))
-
-        # Render template with the generated affirmation
+        affirmation = random.choice(affirmations[mood_category])
         return render_template('index.html', affirmation=affirmation, mood=user_mood)
-    else:
-        # GET request: just render the form without an affirmation
-        return render_template('index.html', affirmation=None)
 
-# Run the Flask app
+    return render_template('index.html', affirmation=None)
+
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
