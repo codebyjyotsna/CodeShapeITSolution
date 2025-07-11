@@ -7,20 +7,52 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  background: linear-gradient(135deg, #f6d365, #fda085, #a18cd1, #fbc2eb);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #333;
+  color: #fff;
+  padding-top: 60px; /* space for top bar */
 }
 
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Top bar styles */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.bar-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .wrapper {
@@ -30,14 +62,14 @@ body {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 30px 25px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
 }
 
@@ -46,7 +78,7 @@ body {
   margin-bottom: 20px;
   font-weight: 700;
   color: #fff;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
 form {
@@ -58,6 +90,7 @@ label {
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 1rem;
+  color: #fcefee;
 }
 
 input[type="text"] {
@@ -68,11 +101,11 @@ input[type="text"] {
   border-radius: 10px;
   font-size: 1rem;
   outline: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 button {
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  background: linear-gradient(45deg, #a18cd1, #fbc2eb);
   color: #fff;
   border: none;
   padding: 12px 25px;
@@ -88,25 +121,25 @@ button {
 button:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(45deg, #2575fc, #6a11cb);
+  background: linear-gradient(45deg, #fbc2eb, #a18cd1);
 }
 
 button.another {
-  background: linear-gradient(45deg, #ff9966, #ff5e62);
+  background: linear-gradient(45deg, #fda085, #f6d365);
 }
 
 button.another:hover {
-  background: linear-gradient(45deg, #ff5e62, #ff9966);
+  background: linear-gradient(45deg, #f6d365, #fda085);
 }
 
 .affirmation {
   margin-top: 20px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   border-left: 4px solid #fff;
   border-radius: 12px;
   font-size: 1.2rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .affirmation p {
